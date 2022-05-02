@@ -1,16 +1,31 @@
 import React, { useState } from 'react';
-import { HeaderStyles, Logo, NavLinks, LinkLogin } from './styles';
+
+import { HeaderStyles, 
+         Logo, 
+         NavLinks, 
+         LinkLogin, 
+         SearchInputContainer, 
+         MenuIconContainer } from './styles';
 import { Container } from '../../GlobalStyle';
-import CustomLink from '../CustomLink';
 import logo from '../../logo.svg';
-import { MdSearch } from 'react-icons/md';
+import { MdSearch, MdMenu } from 'react-icons/md';
+
+import CustomLink from '../CustomLink';
 import SearchInput from '../SearchInput';
+import ModalMenu from '../ModalMenu';
 
 const Header = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const handleClick = () => {
-    setIsVisible(prevState => !prevState);
+  const [inputIsVisible, setInputIsVisible] = useState(false);
+  const  [menuIsVisible, setMenuIsVisible] = useState(false);
+
+  const handleInputClick = () => {
+    setInputIsVisible(prevState => !prevState);
   }
+
+  const handleMenuClick = () => {
+    setMenuIsVisible(prevState => !prevState);
+  }
+
 
   return (
     <HeaderStyles>
@@ -22,13 +37,17 @@ const Header = () => {
           <CustomLink to="/upcoming">Upcoming</CustomLink>
         </NavLinks>
         <div style={{ display: 'flex', alignItems: 'center', gap: 40 }}>
-          <div style={{ display: 'flex', alignItems: 'center'}}>
-            {isVisible && <SearchInput />}
-            <MdSearch size={30} onClick={handleClick} />
-          </div>
+          <SearchInputContainer>
+            {inputIsVisible && <SearchInput />}
+            <MdSearch style={{ cursor: 'pointer' }} size={30} onClick={handleInputClick} />
+          </SearchInputContainer>
+          <MenuIconContainer>
+            <MdMenu onClick={handleMenuClick} size={30} />
+          </MenuIconContainer>
           <LinkLogin>Sign in</LinkLogin>
         </div>
       </Container>
+      {menuIsVisible && <ModalMenu setState={setMenuIsVisible} />}
     </HeaderStyles>
 
   );

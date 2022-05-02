@@ -30,6 +30,12 @@ const GlobalStyle = createGlobalStyle`
 export const Container = styled.div`
   width: 70%;
   margin: 0 auto;
+
+  @media (max-width: 375px) {
+    & {
+      width: 95%;
+    }
+  }
 `;
 
 export default GlobalStyle;
