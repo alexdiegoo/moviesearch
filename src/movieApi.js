@@ -15,3 +15,8 @@ export const getSearchMovies = async (query) => {
   const res = await axios.get(`${Environment.BASE_URL}search/movie?api_key=${Environment.API_KEY}&query=${query}&page=1`);
   return res.data;
 }
+
+export const getGenreList = async () => {
+  const res = await axios.get(`${Environment.BASE_URL}genre/movie/list?api_key=${Environment.API_KEY}`);
+  return res.data.genres;
+}
