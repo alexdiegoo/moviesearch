@@ -1,6 +1,8 @@
 import axios from "axios";
 import { Environment } from './environment';
 
+export const IMAGE_URL = 'https://image.tmdb.org/t/p/w500/';
+
 export const getMovies = async (url, page) => {
   const res = await axios.get(`${Environment.BASE_URL}movie/${url}?api_key=${Environment.API_KEY}&page=${page}`);
   return res.data.results;
