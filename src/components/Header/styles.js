@@ -5,6 +5,7 @@ export const HeaderStyles = styled.header`
   width: 100%;
   height: 80px;
   padding: 16px 0;
+  margin-bottom: 20px;
   background-color: ${colors.secondary};
 `;
 

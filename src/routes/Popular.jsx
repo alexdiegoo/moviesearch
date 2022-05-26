@@ -1,7 +1,29 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+
+import MovieCard from '../components/MovieCard';
+import { getMovies } from '../movieApi';
+
+import { Container, Grid } from '../GlobalStyle';
 
 const Popular = () => {
-  return <h1>Popular</h1>
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    (async () => {
+      const movies = await getMovies('popular', 1);
+      setData(movies);
+    })()
+    
+
+  }, []);
+
+  return (
+    <Container>
+      <Grid>
+        {data && data.map(movie => <MovieCard key={movie.id} movie={movie} />)}
+      </Grid>
+    </Container>
+  );
 }
 
 export default Popular;
