@@ -4,6 +4,7 @@ import { getMovieDetails } from '../movieApi';
 
 import { Container } from '../GlobalStyle';
 import MovieDetails from '../components/MovieDetails';
+import SliderActors from '../components/SliderActors'
 
 const Movie = () => {
   const [data, setData] = useState(null);
@@ -19,6 +20,8 @@ const Movie = () => {
   return (
     <Container>
       {data && <MovieDetails data={data} />}
+      <h1 style={{ margin: '20px 0', fontSize: '3rem' }}>Actors</h1>
+      <SliderActors id={id} />
     </Container>
   );
 }

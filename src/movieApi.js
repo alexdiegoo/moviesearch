@@ -22,3 +22,8 @@ export const getGenreList = async () => {
   const res = await axios.get(`${Environment.BASE_URL}genre/movie/list?api_key=${Environment.API_KEY}`);
   return res.data.genres;
 }
+
+export const getActors = async (id) => {
+  const res = await axios.get(`${Environment.BASE_URL}movie/${id}/credits?api_key=${Environment.API_KEY}`);
+  return res.data.cast;
+}
