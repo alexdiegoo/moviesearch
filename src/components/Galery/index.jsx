@@ -16,9 +16,6 @@ const Galery = ({ id }) => {
   }, []);
 
   const handleClick = (type) => {
-    console.log(images[indexImage])
-    console.log("Length: " + images.length)
-    console.log(indexImage)
     if(type === 'increment') {
       if(indexImage >= images.length) return setIndexImage(0);
 
