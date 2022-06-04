@@ -40,7 +40,15 @@ export const Container = styled.div`
 
 export const Grid = styled.div`
   display: grid;
+  width: 90%;
+  margin: 0 auto;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+
+  @media (min-width: 900px) {
+    & {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
 `;
 
 const rotate = keyframes`
