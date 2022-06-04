@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getMovieDetails } from '../movieApi';
 
-import { Container } from '../GlobalStyle';
+import { Container, Loading } from '../GlobalStyle';
 import MovieDetails from '../components/MovieDetails';
 import SliderActors from '../components/SliderActors';
 import Galery from '../components/Galery';
@@ -20,11 +20,15 @@ const Movie = () => {
 
   return (
     <Container>
-      {data && <MovieDetails data={data} />}
-      <h1 style={{ margin: '20px 0', fontSize: '3rem' }}>Actors</h1>
-      <SliderActors id={id} />
-      <h1 style={{ margin: '20px 0', fontSize: '3rem' }}>Galery</h1>
-      <Galery id={id} />
+      { data
+        ? <React.Fragment>
+          <MovieDetails data={data} />
+          <h1 style={{ margin: '20px 0', fontSize: '3rem' }}>Actors</h1>
+          <SliderActors id={id} />
+          <h1 style={{ margin: '20px 0', fontSize: '3rem' }}>Galery</h1>
+          <Galery id={id} />
+        </React.Fragment>
+        : <Loading />}
     </Container>
   );
 }

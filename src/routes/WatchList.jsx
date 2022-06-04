@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { Container } from '../GlobalStyle';
+import { Container, Loading } from '../GlobalStyle';
 import MovieWatchList from '../components/MovieWatchList';
 
 const WatchList = () => {
@@ -14,9 +14,11 @@ const WatchList = () => {
   return (
     <Container>
       <h1 style={{ marginBottom: 30 }}>My WatchList</h1>
-      {movies && movies.map((id) => {
-        return <MovieWatchList key={id} movie_id={id} />
-      })}
+      {
+        movies
+          ?  movies.map((id) => <MovieWatchList key={id} movie_id={id} />)
+          : <Loading />
+      }
     </Container>
   );
 }

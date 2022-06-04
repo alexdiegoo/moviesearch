@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import MovieCard from '../components/MovieCard';
 import { getMovies } from '../movieApi';
 
-import { Container, Grid } from '../GlobalStyle';
+import { Container, Grid, Loading } from '../GlobalStyle';
 
 const TopRated = () => {
   const [data, setData] = useState(null);
@@ -20,7 +20,11 @@ const TopRated = () => {
   return (
     <Container>
       <Grid>
-        {data && data.map(movie => <MovieCard key={movie.id} movie={movie} />)}
+        {
+          data 
+            ? data.map(movie => <MovieCard key={movie.id} movie={movie} />)
+            : <Loading />
+        }
       </Grid>
     </Container>
   );
