@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import useGenre from '../../hooks/useGenre';
 import { IMAGE_URL } from '../../movieApi';
 
