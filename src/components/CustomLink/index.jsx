@@ -11,9 +11,8 @@ const CustomLink = ({ children, to, ...props}) => {
   return (
     <Link style={{ 
       textDecoration: 'none', 
-      color: colors.text,
-      borderBottom: match ? `3px solid ${colors.primary}` : 'none',
-      paddingBottom: 10}} to={to} {...props}>
+      color: match ? colors.primary : colors.text,
+      fontSize: '1.5rem'}} to={to} {...props}>
       {children}
     </Link>
   );

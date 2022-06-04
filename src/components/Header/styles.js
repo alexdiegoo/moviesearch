@@ -13,7 +13,6 @@ export const NavLinks = styled.nav`
   display: flex;
   align-items: center;
   gap: 36px;
-  font-size: 2rem;
   font-weight: bold;
 
   @media (max-width: 1024px) {

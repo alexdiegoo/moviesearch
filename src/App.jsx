@@ -8,6 +8,7 @@ import Popular from './routes/Popular';
 import TopRated from './routes/TopRated';
 import Upcoming from './routes/Upcoming';
 import Movie from './routes/Movie';
+import WatchList from './routes/WatchList';
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
         <Route path="toprated" element={<TopRated />} />
         <Route path="upcoming" element={<Upcoming />} />
         <Route path="movie/:id" element={<Movie />} />
+        <Route path="watchlist" element={<WatchList />} />
       </Routes>
       <GlobalStyle />
     </BrowserRouter>

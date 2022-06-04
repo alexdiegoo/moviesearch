@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { HeaderStyles, 
          Logo, 
          NavLinks, 
-         LinkLogin, 
          SearchInputContainer, 
          MenuIconContainer } from './styles';
 import { Container } from '../../GlobalStyle';
@@ -44,7 +43,7 @@ const Header = () => {
           <MenuIconContainer>
             <MdMenu onClick={handleMenuClick} size={30} />
           </MenuIconContainer>
-          <LinkLogin>Sign in</LinkLogin>
+          <CustomLink to="/watchlist">My WatchList</CustomLink>
         </div>
       </Container>
       {menuIsVisible && <ModalMenu setState={setMenuIsVisible} />}
