@@ -9,6 +9,7 @@ import TopRated from './routes/TopRated';
 import Upcoming from './routes/Upcoming';
 import Movie from './routes/Movie';
 import WatchList from './routes/WatchList';
+import Search from './routes/Search';
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
       <Header />
       <Routes>
         <Route path="/" element={<Navigate  to="/popular"/>} />
+        <Route path="search/:query" element={<Search />} />
         <Route path="popular" element={<Popular />} />
         <Route path="toprated" element={<TopRated />} />
         <Route path="upcoming" element={<Upcoming />} />
