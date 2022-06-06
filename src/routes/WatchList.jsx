@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { Container, Loading } from '../GlobalStyle';
+import { Container } from '../GlobalStyle';
 import MovieWatchList from '../components/MovieWatchList';
 
 const WatchList = () => {
@@ -17,7 +17,7 @@ const WatchList = () => {
       {
         movies
           ?  movies.map((id) => <MovieWatchList key={id} movie_id={id} />)
-          : <Loading />
+          : <h1>No movies found</h1>
       }
     </Container>
   );
